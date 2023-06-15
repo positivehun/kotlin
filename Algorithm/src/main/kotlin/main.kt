@@ -1,4 +1,3 @@
-fun main(){
-
-    println("Hello Kotlin")
+fun main(args: Array<String>) {
+    Generater()
 }
