@@ -56,6 +56,12 @@ fun Arrays(){
         }
     }
 
+    for (item in array8){
+        for (item1 in item){
+            println("item1 : $item1")
+        }
+    }
+
     //배열 요소에 접근하는 방법은 array.get(index) 혹은 array[index] 방법이 있다
 
 
