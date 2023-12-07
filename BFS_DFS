@@ -1,0 +1,65 @@
+BFS
+```
+import java.util.*
+
+fun bfs(graph: Map<Int, List<Int>>, startNode: Int) {
+    val visited = mutableSetOf<Int>()
+    val queue: Queue<Int> = LinkedList<Int>()
+
+    queue.add(startNode)
+    visited.add(startNode)
+
+    while (queue.isNotEmpty()) {
+        val node = queue.poll()
+        println(node)
+        graph[node]?.forEach { nextNode ->
+            if (nextNode !in visited) {
+                visited.add(nextNode)
+                queue.add(nextNode)
+            }
+        }
+    }
+}
+
+fun main() {
+    val graph = mapOf(
+        1 to listOf(2, 3, 4),
+        2 to listOf(5),
+        3 to listOf(),
+        4 to listOf(6, 7),
+        5 to listOf(),
+        6 to listOf(),
+        7 to listOf()
+    )
+
+    bfs(graph, 1) // 시작 노드는 1
+}
+```
+
+DFS
+```
+fun dfs(graph: Map<Int, List<Int>>, visited: MutableSet<Int>, node: Int) {
+    if (node !in visited) {
+        visited.add(node)
+        println(node)
+        graph[node]?.forEach { nextNode ->
+            dfs(graph, visited, nextNode)
+        }
+    }
+}
+
+fun main() {
+    val graph = mapOf(
+        1 to listOf(2, 3, 4),
+        2 to listOf(5),
+        3 to listOf(),
+        4 to listOf(6, 7),
+        5 to listOf(),
+        6 to listOf(),
+        7 to listOf()
+    )
+
+    val visited = mutableSetOf<Int>()
+    dfs(graph, visited, 1) // 시작 노드는 1
+}
+```
