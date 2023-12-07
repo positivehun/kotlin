@@ -38,4 +38,7 @@ class Derived(p:Int) : Base(p){
         println("Derived Shout $p")
     }
 
+
+    //오늘은 여기까지
+
 }
